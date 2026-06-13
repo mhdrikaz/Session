@@ -43,7 +43,7 @@ function createUser()
         echo json_encode(['status' => 'Failed', 'message' => 'Email and password are required']);
         exit();
     }
-
+        // rikazm525.gmail.com
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['status' => 'Failed', 'message' => 'Invalid email format']);
         exit();
@@ -96,7 +96,7 @@ function createUser()
         }
     }
 
-    $checkStmt = $conn->prepare('SELECT id FROM users WHERE email = ? LIMIT 1');
+    $checkStmt = $conn->prepare('SELECT id  FROM users WHERE email = ? LIMIT 1');
     if (!$checkStmt) {
         echo json_encode(['status' => 'error', 'message' => 'Database error']);
         exit();

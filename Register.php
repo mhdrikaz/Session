@@ -116,20 +116,20 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 const registerForm = document.getElementById('registerForm');
-const passwordInput = document.getElementById('password');
-const togglePasswordBtn = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password'); // 1
+const togglePasswordBtn = document.getElementById('togglePassword'); // 2
 const profileImageInput = document.getElementById('profile_image');
 const avatarUploadBtn = document.getElementById('avatarUploadBtn');
 const uploadPhotoBtn = document.getElementById('uploadPhotoBtn');
 const avatarPreview = document.getElementById('avatarPreview');
 
-togglePasswordBtn.addEventListener('click', showPassword);
+togglePasswordBtn.addEventListener('click', showPassword); // 3
 avatarUploadBtn.addEventListener('click', chooseImage);
 uploadPhotoBtn.addEventListener('click', chooseImage);
 profileImageInput.addEventListener('change', showImagePreview);
 registerForm.addEventListener('submit', registerUser);
 
-function showPassword() {
+function showPassword() { //4
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
   } else {
@@ -160,7 +160,7 @@ function registerUser(event) {
 
   const formData = new FormData(registerForm);
   formData.append('action', 'create_user');
-
+      // password : "1234"   !==      // confirm_password : "1234"
   if (formData.get('password') !== formData.get('confirm_password')) {
     Swal.fire({
       title: 'Failed',
